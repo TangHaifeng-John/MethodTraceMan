@@ -22,6 +22,7 @@ public class TraceMan {
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     public static void start(String name) {
         Trace.beginSection(name);
+        Log.i("hf","开始执行方法:"+name);
         if (isOpenTraceMethod()) {
             methodList.add(new Entity(name, System.currentTimeMillis(), true, isInMainThread()));
         }
@@ -30,6 +31,7 @@ public class TraceMan {
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     public static void end(String name) {
         Trace.endSection();
+        Log.i("hf","结束执行方法:"+name);
         if (isOpenTraceMethod()) {
             methodList.add(new Entity(name, System.currentTimeMillis(), false, isInMainThread()));
         }
